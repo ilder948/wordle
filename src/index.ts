@@ -8,7 +8,6 @@ const PORT = 3000;
 async function main() {
   try {
     await AppDataSource.initialize()
-    console.log('Database Connected')
     app.listen(PORT, () => {
       console.log(`Server Running on port ${PORT}`);
     });    
@@ -16,7 +15,7 @@ async function main() {
     console.log(error)
   }
 
-  cron.schedule('*/5 * * * *', () => {
+  cron.schedule('*/1 * * * *', () => {
     console.log('Generando Palabra')
     selectWord()
   })
